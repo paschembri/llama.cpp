@@ -1,0 +1,18 @@
+# Simple GBNF grammar for basic arithmetic expressions
+# Examples: "1 + 2", "123 * 45", "5 - 0", "100 / 20"
+
+root ::= expr
+
+# An expression consists of a number, an operator, and another number.
+# Whitespace is handled around operators and numbers.
+expr ::= number ws op ws number
+
+# A number is one or more digits.
+number ::= [0-9]+
+
+# Optional whitespace (zero or more spaces or tabs).
+# Note: This grammar doesn't support newlines in the middle of an expression.
+ws ::= [ \t]*
+
+# Allowed operators.
+op ::= "+" | "-" | "*" | "/"
